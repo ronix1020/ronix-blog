@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-slate-900 text-white text-lg font-mono">
+    <div class="container max-w-lg mx-auto py-8 bg-slate-600">
+        {{ template_content }}
+        <h1 class="text-2xl font-bold my-6">Bienvenido a mi pequeño blog!</h1>
+        
+        <section class="border border-green-400 mt-12">
+            <h2 class="p-5">Post recientes</h2>
+            {{ collection:blog limit="5" }}
+            <a href="{{ url }}" class="flex items-center justify-between p-5 border-t border-green-400 text-green-400 hover:text-green-900 hover:bg-green-400">
+                <span>{{ title }}</span>
+                <span class="text-greem-900 text-sm">{{ date }}</span>
+            </a>
+            {{ /collection:blog }}
+        </section>
+    </div>
+</body>
+</html>
